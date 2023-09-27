@@ -1,0 +1,17 @@
+<p *ngIf="condition; else elseBlock">true</p>
+<ng-template #elseBlock>
+  <p>False</p>
+</ng-template>
+<ul>
+  <li *ngFor="let item of list">{{ item.nome }}-Idade= {{ item.idade }}</li>
+</ul>
+
+<button (click)="onClickAddList()">ADD</button>
+
+<hr />
+<input type="text" [(ngModel)]="name" />
+<div [ngSwitch]="name">
+  <p *ngSwitchCase="'dener'">dener</p>
+  <p *ngSwitchDefault>deu ruim</p>
+</div>
+<hr>
