@@ -8,6 +8,8 @@ import { bindCallback } from 'rxjs';
 })
 export class DiretivasAtributosComponent implements OnInit {
   public valor: boolean = true;
+  public nome: string = '';
+  public list: Array<{ nome: string }> = [{ nome: 'dener troquatte' }]
   public heightPx: string = '20px';
   public backgroundColor: string = 'red';
   ngOnInit(): void {
@@ -25,5 +27,9 @@ export class DiretivasAtributosComponent implements OnInit {
       }
     }, 3000)
   }
+  salvar() {
+    this.list.push({ nome: this.nome })
+    this.nome = '';
 
+  }
 }
