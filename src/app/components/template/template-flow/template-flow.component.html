@@ -1,13 +1,48 @@
 <h2>Template Control Flow</h2>
 
-<h3>IF</h3>
+<h3>for</h3>
 
-@if (loadingData | async; as data) {
+@for( item of itens;track item.name; let i= $index; let c = $count; let
+f=$first; let l = $last;let e = $even; let o = $odd; ){
+<p>{{ item.name }}</p>
+<p>index - {{ i }}</p>
+<p>count - {{ c }}</p>
+<p>first - {{ f }}</p>
+<p>last - {{ l }}</p>
+<p>even- {{ e }}</p>
+<p>odd - {{ o }}</p>
 
+}
+
+<input #t type="text" />
+<button (click)="addItem(t.value)">ADD</button>
+
+<!-- ==================================================== -->
 <ul>
-  @for (item of data; track item) {
-  <li>{{ item }}</li>
+  @for (item of itens; track item.name) {
+  <li>{{ item.name }}</li>
+  }@empty {
+  <li>Não contém valores</li>
   }
 </ul>
 
-}@else{ Carregando... }
+<!-- =============================== -->
+
+@switch (switchCondition) {
+
+
+  @case ('A') {
+
+    <p>Teste a</p>
+  }
+  @case ('b') {
+
+    <p>Teste a</p>
+  }
+
+  @default {
+    <p>nao encontramos os dados
+      
+    </p>
+  }
+}
